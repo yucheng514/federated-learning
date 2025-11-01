@@ -4,6 +4,7 @@
 
 import matplotlib
 matplotlib.use('Agg')
+# 明确告诉 Matplotlib：“别弹窗口，你的任务是安静地在后台把图画好，然后保存成文件”。代码可在任何无头（Headless）环境下稳定运行。
 import matplotlib.pyplot as plt
 import copy
 import numpy as np
@@ -59,9 +60,13 @@ if __name__ == '__main__':
         exit('Error: unrecognized model')
     print(net_glob)
     net_glob.train()
+    # net_glob.train() 就是对网络进行训练(关于梯度下降、反向传播这类的知识请参考入门教材！)
+
 
     # copy weights
     w_glob = net_glob.state_dict()
+    # 返回模型的所有可学习参数的字典。
+
 
     # training
     loss_train = []
